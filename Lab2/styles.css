@@ -22,7 +22,6 @@
 
 #flex-section2 li {
 	flex-basis: 100%;
-
 }
 
 #flex-section2 .item1 {
@@ -43,11 +42,18 @@
 /* Flexbox Part 3 */
 
 #flex-section3 .box {
-	
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }
 
 #flex-section3 .tags ul {
-
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+	j
 }
 
 /* end Flexbox Part 3 */
@@ -56,7 +62,11 @@
 /* Grid Part 1 */
 
 #grid-section1 .grid {
-
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-auto-rows: 100px;
+	column-gap: 20px;
+	row-gap: 20px;
 }
 
 /* end Grid Part 1 */
