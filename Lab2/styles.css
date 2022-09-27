@@ -80,10 +80,10 @@
 }
 
 #grid-section2 .gridboxred {
-	width: 210%;
 	grid-column: 1;
 	grid-row: 2;	
 	z-index: -1;
+	width: 210%;
 }
 
 /* end Grid Part 2 */
@@ -140,7 +140,6 @@
 	background-color: #cc0000;
 	color: #fff;
 	transition-delay: 0.5s;
-	
 }
 
 /* end Transition Part */
