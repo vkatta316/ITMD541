@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='calculator.css'>
+    <script src='calculator.js'></script>
+</head>
+<body>
+    <div id="header" class="calculator container">
+        
+            <h2>ITMD 4/541 - Lab 3- Vinay Katta</h2>
+            <h1>Tip calculator</h1>
+        <form>
+            <div class="calculatorInputs container">
+                <div class="table commonTable">
+                    <div class="row">
+                        <div class="cell">
+                            <label for="price">Bill Total :</label>
+                        </div>
+                        <div class="cell Bill Total">
+                            <input name="price" id="price" value="" class="nmbr_real real" type="text" size="20" inputmode="decimal" title="positive real number" required="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">
+                            <label for="percentage">Tip :</label>
+                        </div>
+                        <div class="cell percentage slider">
+                            <input type="range" id="tip" name="tip" min="0" max="100">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">
+                            <label for="tipPercentage">Tip percentage :</label>
+                        </div>
+                        <div class="cell tipPercentage">
+                            <input name="price" id="price" value="" class="nmbr_real real" type="text" inputmode="decimal" title="positive real number"  disabled="disabled" required="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">
+                            <label for="tipAmount">Tip Amount :</label>
+                        </div>
+                        <div class="cell Tip Amount">
+                            <input name="price" id="price" value="" class="nmbr_real real" type="text" inputmode="decimal" title="positive real number" disabled="disabled" required="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">
+                            <label for="tipAmount">Total Bill with Tip :</label>
+                        </div>
+                        <div class="cell totalBillWithTip">
+                            <input name="price" id="price" value="" class="nmbr_real real" type="text" inputmode="decimal" title="positive real number" disabled="disabled" required="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
