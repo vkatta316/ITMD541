@@ -1,20 +1,21 @@
 
-
 document.querySelector('#tip-form').onchange = function(){
-
-    var bill = Number(document.getElementById('price').value);
-    var tip = document.getElementById('tipValue').value;
-    console.log(bill);
-    console.log(tip);
-    var tipValue = bill * (tip/100)
-    var finalBill = bill + tipValue
-    var tipAmount = document.querySelector('#tipAmount')
-    var totalBillWithTip = document.querySelector('#totalBillWithTip')
-    tipPercentage = tip;
-    tipAmount.value = tipValue.toFixed(2);
-    totalBillWithTip.value =finalBill.toFixed(2);
+    let bill = Number(document.getElementById('price').value);
+    let tip = document.getElementById('tipValue').value;
+    
+    let tipValue = bill * (tip/100)
+    let finalBill = bill + tipValue
+    populateBillValues(tipValue, finalBill);
 }
 
-function updateTextInput(val) {
-    document.getElementById('tipPercentage').value=val; 
-  }
+function populateBillValues(tipCal, totalAmount){
+    let tipAmount = document.querySelector('#tipAmount')
+    let totalBillWithTip = document.querySelector('#totalBillWithTip')
+    tipAmount.value = tipCal.toFixed(2);
+    totalBillWithTip.value =totalAmount.toFixed(2);
+}
+
+document.querySelector('#tipValue').onchange = function(){
+    let tipPercentage = document.getElementById('tipValue').value;
+    document.getElementById('tipPercentage').value = tipPercentage;   
+}
