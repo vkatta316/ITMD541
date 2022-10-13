@@ -36,9 +36,9 @@ h1 {
     font-size: 4.8rem;
 	margin: 0; 
     text-align: center;
-	}
+}
 
- h2 { 
+h2 { 
 	font: normal 1.2rem Open Sans, sans-serif;
     font-size: 1.8rem;
 	text-align: center;
@@ -56,8 +56,6 @@ div.cell {
 div.row {
     display: table-row;
 }
-
-
 
 div.calculatorInputs div.commonTable .row .cell:first-child {
     text-align: right;
