@@ -49,5 +49,5 @@ function setFieldsToDefaultValues(errorMssg){
     document.getElementById('totalBillWithTip').value = '';
     document.getElementById('tipValue').value = '0';
     document.getElementById('errMsg').innerText = errorMssg;
-    document.getElementById("price").style.borderColor="#FF0000";
+    document.getElementById("price").style.borderColor="#b20000";
 }

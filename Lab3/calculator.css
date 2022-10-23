@@ -10,7 +10,7 @@ body {
         #04033d
     ) fixed;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    min-height: 50vh;
 }
 
 .main-container {
@@ -25,12 +25,18 @@ body {
     justify-content: center;
 }
 
-.main-title {
-    font-size: 4rem;
+label {
+    font-weight: normal !important;
 }
 
-.info-title {
-    font-size: 1.25rem;
+h1 {
+    text-align: center;
+    font: bold 3.0rem "Open Sans", sans-serif; 
+}
+
+h2 {
+    text-align: center;
+    font: 1.2rem "Open Sans", sans-serif;
 }
 
 .card-body{
@@ -59,12 +65,13 @@ input[type='range'] {
     height: fit-content;
     overflow: hidden;
     border: none;
-    margin-top: 3%;
+    margin-top: 4.5%;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-right: 0%;
     padding-left: 0%;
-    background: transparent;
+    border:0 none !important;
+    background-color: transparent !important;
 }
 
 input[type='range'],
