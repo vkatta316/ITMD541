@@ -28,13 +28,13 @@ function populateBillValues(tipCal, totalAmount, tipPercentage){
 function validateInputs(billAmount, tipPercent){
     let msg = '';
     if(isNaN(billAmount)){
-        msg = 'Invalid Amount, please enter a valid number';
+        msg = 'Invalid Bill Total, please enter a valid number';
     }
     else if(isNaN(tipPercent)){
         msg = 'Invalid Tip Percentage, please select a valid input';
     }
     else if(billAmount < 0){
-        msg = 'Bill Amount cannot be negative, please enter a valid value';
+        msg = 'Bill Total cannot be negative, please enter a valid value';
     }
     else if(!(tipPercent >= 0 && tipPercent <=100)){
         msg = 'Tip percentage should be between 0 and 100 inclusive, please select a valid range';
