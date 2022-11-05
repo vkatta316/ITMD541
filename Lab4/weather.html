@@ -6,7 +6,6 @@
     <title>Weather Information</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='weather.css'>
-    
 </head>
     <body>
         <main class="wrapper">
@@ -36,11 +35,11 @@
                             <div data-v-68963a64 class="search-block">
                                 <div data-v-68963a64 class="search">
                                     <div data-v-68963a64 class="search-container">
-                                        <input data-v-68963a64 type="text" placeholder="Search City" class="search_city">
+                                        <input data-v-68963a64 type="text" placeholder="Search City" id="searchCity" class="search_city">
                                     </div>
-                                    <button data-v-68963a64 type="submit" class="button-round dark">Search</button>
+                                    <button data-v-68963a64 type="submit" id="searchSubmit" class="button-round dark">Search</button>
                                 </div>
-                                <div data-v-68963a64="" class="sub not-found">Not found. To make search more precise put the correct city's name.
+                                <div data-v-68963a64 id="cityNotFound" class="sub not-found">Not found. Put the correct city's name.
                                         
                                 </div>
                             </div>
@@ -54,6 +53,27 @@
                                 <span data-v-3e6e9f12 id="orange-text" class="orange-text"></span>
                                 <h2 data-v-3e6e9f12 id="cityName" style="margin-top: 0px;"></h2>
                             </div>
+                            <div data-v-3e6e9f12 class="current-temp">
+                              <svg data-v-3e6e9f12="" width="50px" height="50px" viewBox="0 0 148 148" class="owm-weather-icon">
+                                 <img id="currentWeatherImage" src="" alt="">
+                              </svg>
+                              <span data-v-3e6e9f12 id="currentTemp" class="heading"></span>
+                           </div>
+                           <div data-v-3e6e9f12 id ="typeOfClimate" class="bold"></div>
+                           <ul data-v-3208ab85 data-v-3e6e9f12="" class="weather-items text-container orange-side standard-padding">
+                              <!---->
+                              <li data-v-3208ab85>
+                                 <div data-v-3208ab85 id = "wind" class="wind-line">
+                                 </div>
+                              </li>
+                              <li data-v-3208ab85 id = "humidity">
+                                 <span data-v-3208ab85  class="symbol"></span>
+                              </li>
+                              <!---->
+                              <li data-v-3208ab85 id ="precip">
+                                 <span data-v-3208ab85 class="symbol"></span>
+                              </li>
+                           </ul>
                         </div>
                     </div>
                     <div class="grid-container grid-5-4" style="margin-top: 16pt;">
@@ -166,6 +186,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- <script src='weather_city.js'></script> -->
         <script src='weather.js'></script>
     </body>
 

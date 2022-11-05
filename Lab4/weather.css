@@ -67,9 +67,8 @@ body{
     border-color: #48484a;
     color: #f2f2f2;
 }
-
 .button-round[data-v-68963a64], button.button-round[data-v-68963a64] {
-    
+    border-radius: 16pt;
     padding: 6pt 8pt;
     text-decoration: none;
     color: #48484a;
@@ -77,10 +76,17 @@ body{
     border-style: none;
 }
 
+.button-round.dark, button.button-round.dark {
+    background-color: #48484a;
+    border-color: #48484a;
+    color: #f2f2f2;
+}
+
+
 .button-round[data-v-68963a64] {
     border-radius: 0 4pt 4pt 0!important;
     padding: 0 8pt!important;
-    height: 32pt;
+    height: 24pt;
     width: 90px;
 }
 
@@ -89,11 +95,6 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
-}
-
-.search .search-container[data-v-68963a64] {
-    position: relative;
-    
 }
 
 .orange-text[data-v-3e6e9f12] {
@@ -110,7 +111,11 @@ h2[data-v-3e6e9f12] {
 }
 
 *[data-v-68963a64] {
-    box-sizing : content-box;
+    box-sizing : border-box;
+}
+
+.search .search-container[data-v-68963a64] {
+    position: relative;    
 }
 
 .search .search-container input[data-v-68963a64] {
@@ -135,6 +140,10 @@ h2[data-v-3e6e9f12] {
     align-items: center;
     justify-content: center;
     visibility: hidden;
+}
+
+.not-found.notFoundOpen[data-v-68963a64] {
+    visibility: visible;
 }
 
 .daily-container[data-v-5ed3171e] {
@@ -196,6 +205,59 @@ h3[data-v-5ed3171e] {
     box-sizing: border-box;
 }
 
+.current-temp[data-v-3e6e9f12] {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+}
+
+.current-temp svg[data-v-3e6e9f12] {
+    margin-left: -5px;
+}
+
+.heading[data-v-3e6e9f12] {
+    font-size: 36px;
+    font-weight: 100;
+    margin-right: 8pt;
+}
+
+.bold[data-v-3e6e9f12] {
+    font-weight: 700;
+}
+
+.weather-items[data-v-3e6e9f12] {
+    margin-top: 4pt;
+    margin-bottom: 0;
+}
+
+.standard-padding[data-v-3e6e9f12] {
+    padding-left: 16pt;
+    padding-right: 16pt;
+}
+
+.text-container[data-v-3e6e9f12] {
+    max-width: 400px;
+}
+
+weather-items[data-v-3208ab85] {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 20px;
+}
+
+.orange-side[data-v-3e6e9f12] {
+    border-left: 1px solid #eb6e4b;
+}
+
+.weather-items li[data-v-3208ab85] {
+    margin-right: 16pt;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
 @media screen and (min-width: 768px) {
     .mobile-padding{
         padding-left: 0;
@@ -211,4 +273,13 @@ h3[data-v-5ed3171e] {
         justify-content: flex-end;
     }
 
+    .not-found[data-v-68963a64] {
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (min-width: 1025px){
+    .not-found[data-v-68963a64] {
+        justify-content: flex-end;
+    }
 }
