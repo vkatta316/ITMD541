@@ -50,7 +50,7 @@ function error(err) {
     let wrapper = document.createElement('div');
     let text = `Error(${err.code}): ${err.message}`;
     wrapper.innerHTML = text;
-    document.getElementsByTagName('body')[0].appendChild(wrapper);
+    //document.getElementsByTagName('body')[0].appendChild(wrapper);
 }
 
 function getWeekDays() {
@@ -67,29 +67,24 @@ function getWeekDays() {
 searchBtn.addEventListener("click", function() {
     let location = cityName.value;
     console.log(location);
-  
-  fetch(`https://weatherdbi.herokuapp.com/data/weather/${location}`)
-  .then(function(res){
-    return res.json();
-  })
-  .then(function(jsonData){
-    console.log(jsonData);
-    if(jsonData.status === 'fail'){
-        document.getElementById('cityNotFound').classList.add('notFoundOpen');
+    let errorMsg =  validateInputs(location);
 
-        console.log(jsonData.message);
+    fetch(`https://weatherdbi.herokuapp.com/data/weather/${location}`)
+    .then(function(res){
+        return res.json();
+    })
+    .then(function(jsonData){
+    console.log(jsonData);
+    if(jsonData.status === 'fail'){        
+        document.getElementById('cityNotFound').classList.add('notFoundOpen');
     }
     else{
         renderWeatherReport(jsonData)
     }
   })
   .catch();
+
 });
-
-function renderCurrentWeatherConditions(){
-    
-
-}
 
 function renderWeatherReport(response){
     let cityName = response.region;
@@ -115,6 +110,8 @@ function renderWeatherReport(response){
 
     const img = document.getElementById("currentWeatherImage");
     img.src = currentWeatherIcon;
+
+    document.getElementById('8DayForecast').innerHTML='8-Day Forecast';
   
    let eightDayForeCast = response.next_days;
    eightDayForeCast.forEach((item, index) => {
@@ -149,22 +146,20 @@ function renderWeatherReport(response){
 }
 
 
-function validateInputs(billAmount, tipPercent){
+function validateInputs(location){
     let msg = '';
-    if(isNaN(billAmount)){
-        msg = 'Invalid Amount, please enter a valid number';
+    if(isNaN(location)){
+        msg = 'Invalid Entry, Please enter a correct city name';
     }
-    else if(isNaN(tipPercent)){
-        msg = 'Invalid Tip Percentage, please select a valid input';
+    else if(location === 0){
+        msg = 'Invalid Entry, Please enter a correct city name';
     }
-    else if(billAmount < 0){
-        msg = 'Bill Amount cannot be negative, please enter a valid value';
-    }
-    else if(!(tipPercent >= 0 && tipPercent <=100)){
-        msg = 'Tip percentage should be between 0 and 100 inclusive, please select a valid range';
+    else if(location === ' ' || location === '?'){
+        msg = 'Invalid Entry, Please enter a correct city name';
     }
     return msg;
 }
+
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 }); //end DOMContentLoaded

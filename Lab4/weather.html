@@ -9,7 +9,7 @@
 </head>
     <body>
         <main class="wrapper">
-            <div class="section where-to" style="background-image: url('images/autumnWeather.png');">
+            <div class="section where-to">
                 <div class="section-content grid-container">
                     <div class="section-content grid-container grid-1-1" style="margin-top: 0; padding: 0;">
                         <div style="display: flex; align-items: center;">
@@ -32,14 +32,14 @@
                 <div class="grey-container">
                     <div class="page-container">
                         <div class="control-container mobile-padding grid-container grid-5-4 grid-reverse">
-                            <div data-v-68963a64 class="search-block">
-                                <div data-v-68963a64 class="search">
-                                    <div data-v-68963a64 class="search-container">
-                                        <input data-v-68963a64 type="text" placeholder="Search City" id="searchCity" class="search_city">
+                            <div data-v class="search-block">
+                                <div data-v class="search">
+                                    <div data-v class="search-container">
+                                        <input data-v type="text" placeholder="Search City" id="searchCity" class="search_city">
                                     </div>
-                                    <button data-v-68963a64 type="submit" id="searchSubmit" class="button-round dark">Search</button>
+                                    <button data-v type="submit" id="searchSubmit" class="button-round dark">Search</button>
                                 </div>
-                                <div data-v-68963a64 id="cityNotFound" class="sub not-found">Not found. Put the correct city's name.
+                                <div data-v id="cityNotFound" class="sub not-found">Not found. Put the correct city's name.
                                         
                                 </div>
                             </div>
@@ -54,9 +54,7 @@
                                 <h2 data-v-3e6e9f12 id="cityName" style="margin-top: 0px;"></h2>
                             </div>
                             <div data-v-3e6e9f12 class="current-temp">
-                              <svg data-v-3e6e9f12="" width="50px" height="50px" viewBox="0 0 148 148" class="owm-weather-icon">
                                  <img id="currentWeatherImage" src="" alt="">
-                              </svg>
                               <span data-v-3e6e9f12 id="currentTemp" class="heading"></span>
                            </div>
                            <div data-v-3e6e9f12 id ="typeOfClimate" class="bold"></div>
@@ -78,7 +76,7 @@
                     </div>
                     <div class="grid-container grid-5-4" style="margin-top: 16pt;">
                         <div data-v-5ed3171e class="daily-container block mobile-padding">
-                            <h3 data-v-5ed3171e>8-day forecast</h3>
+                            <h3 data-v-5ed3171e id="8DayForecast"></h3>
                             <ul data-v-5ed3171e class="day-list">
                                <li data-v-5ed3171e class= "forecast">
                                   <span data-v-5ed3171e id="weekday"></span>
