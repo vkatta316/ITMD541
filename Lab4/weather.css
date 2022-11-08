@@ -251,8 +251,8 @@ h3[data-v-5ed3171e] {
 }
 
 .standard-padding[data-v-3e6e9f12] {
-    padding-left: 16pt;
-    padding-right: 16pt;
+    padding-left: 1pt;
+    
 }
 
 .text-container[data-v-3e6e9f12] {
@@ -267,9 +267,6 @@ weather-items[data-v-3208ab85] {
     line-height: 20px;
 }
 
-.orange-side[data-v-3e6e9f12] {
-    border-left: 1px solid #eb6e4b;
-}
 
 .weather-items li[data-v-3208ab85] {
     margin-right: 16pt;
