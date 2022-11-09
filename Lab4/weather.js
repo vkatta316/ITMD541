@@ -10,13 +10,15 @@ window.addEventListener('DOMContentLoaded', function(){
     
     const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    const regex = /^[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~\d]*$/g;
+    const regex = /^[`!@#$%^&*()_+\-=\[\][/]{};':"\\|,.<>\/?~\d]*$/g;
     
     let cityName = document.getElementById('searchCity');
+    const locationSearch = document.getElementById('locationSearch');
     const searchBtn = document.getElementById('searchSubmit');
+    const loader =this.document.querySelector('#loading');
     
     function success(pos){
-    
+        displayLoading();
         let crd = pos.coords;
         
         let latitude = `${crd.latitude}`;
@@ -40,6 +42,7 @@ window.addEventListener('DOMContentLoaded', function(){
             return res.json();
         })
         .then(function(response){
+            hideLoading();
             renderWeatherReport(response);
         })
         .catch(error => console.log(error))
@@ -81,6 +84,11 @@ window.addEventListener('DOMContentLoaded', function(){
             }
         }
     });
+
+    locationSearch.addEventListener("click", function() {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+    
+    });
     
     searchBtn.addEventListener("click", function() {
         document.getElementById('cityNotFound').classList.remove('notFoundOpen');
@@ -99,16 +107,19 @@ window.addEventListener('DOMContentLoaded', function(){
     });
 
     function weatherAPIAction(location){
+        displayLoading();
         fetch(`https://weatherdbi.herokuapp.com/data/weather/${location}`)
         .then(function(res){
             return res.json();
         })
         .then(function(jsonData){
         console.log(jsonData);
-        if(jsonData.status === 'fail'){        
+        if(jsonData.status === 'fail'){ 
+            hideLoading();       
             document.getElementById('cityNotFound').classList.add('notFoundOpen');
         }
         else{
+            hideLoading();
             renderWeatherReport(jsonData)
         }
       })
@@ -186,7 +197,20 @@ window.addEventListener('DOMContentLoaded', function(){
 
         return msg;
     }
+
+    function displayLoading(){
+        loader.classList.add("display");
+
+        setTimeout(() => {
+            loader.classList.remove("display");
+        }, 5000);
+    }
+
+    function hideLoading(){
+        document.getElementById("loading").style.display = "none";
+
+    }
     
-    
+
     navigator.geolocation.getCurrentPosition(success, error, options);
     }); //end DOMContentLoaded

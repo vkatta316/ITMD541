@@ -8,6 +8,31 @@ body{
     justify-items: center;
 }
 
+#loading{
+    width: 2rem;
+    height: 2rem;
+    border: 5px solid #f3f3f3;
+    border-top: 6px solid #48484a;;
+    border-radius: 100%;
+    margin: auto;
+    visibility: hidden;
+    animation: spin 1s infinite linear;
+
+}
+
+#loading.display{
+    visibility: visible;
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
 .section-content {
     width: 100%;
     max-width: 900px;
@@ -48,20 +73,31 @@ body{
     margin: auto;
 }
 
-#weather-widget .page-container .control-container {
-    padding-top: 20pt;
+#weather-widget .page-container .control-container  {
+    padding-top: 20pt;	
     align-items: flex-start;
 }
 
 #weather-widget {
     font-family: 'PT Serif', 'Times New Roman', Times, serif;
-    
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #48484a;
     width: 100%;
     margin: 0;
     padding: 0;
+}
+
+.icon-current-location {
+    height: 10pt;
+    width: auto;
+}
+
+.control-el {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 3px;
 }
 
 .button-round.dark, button.button-round.dark {
@@ -118,7 +154,13 @@ h2[data-v-3e6e9f12] {
 }
 
 .search .search-container {
-    position: relative;    
+    position: relative;
+    
+    
+}
+
+#weather-widget .page-container {
+    margin: auto;
 }
 
 .search .search-container input {
@@ -281,23 +323,50 @@ weather-items[data-v-3208ab85] {
         padding-right: 0;
     }
 
+    .search {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        width: 100%;
+    }
     .grid-5-4 {
     grid-template-columns: 5fr 4fr;
     grid-template-columns: minmax(0,5fr) minmax(0,4fr);
     }
 
-    .search{ 
-        justify-content: flex-end;
+    .grid-container {
+        display: grid;
+        grid-gap: 16pt;
     }
 
     .not-found {
         justify-content: flex-end;
     }
+
+    grid-reverse>div:first-child {
+        order: 2;
+    }
+
+    #weather-widget .page-container {
+        max-width: 900px;
+    }
+
 
 }
 
-@media screen and (min-width: 1025px){
+@media screen and (min-width: 768px){
     .not-found {
         justify-content: flex-end;
+        padding: 12px;
+        align-items: center;
+        
+    }
+}
+
+@media screen and (min-width: 320px){
+    .controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
     }
 }
