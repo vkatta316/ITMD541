@@ -9,13 +9,13 @@
 </head>
     <body>
         <main class="wrapper">
-            <div class="section where-to">
+            <div class="section imageContainer">
                 <div class="section-content grid-container">
                     <div class="section-content grid-container grid-1-1" style="margin-top: 0; padding: 0;">
                         <div style="display: flex; align-items: center;">
                             <div class="mobile-padding">
-                                <h1><span class="orange-text">Weather Dashboard </span></h1>
-                                <h2><span class="white-text">Fast And Easy Weather Information </span></h2>
+                                <h1><span class="main-heading">Weather Dashboard </span></h1>
+                                <h2><span class="sub-heading">Fast And Easy Weather Information </span></h2>
                                 <br>
                                 <br>
                 
@@ -60,115 +60,115 @@
                 
                 <div class="section-content">
                     <div class="grid-container grid-4-5">
-                        <div data-v-3e6e9f12 class="current-container mobile-padding">
+                        <div class="current-container mobile-padding">
                            <div id="loading"></div>
-                            <div data-v-3e6e9f12>
-                                <span data-v-3e6e9f12 id="orange-text" class="orange-text"></span>
-                                <h2 data-v-3e6e9f12 id="cityName" style="margin-top: 0px;"></h2>
+                            <div>
+                                <span id="dateStamp" class="dateStamp"></span>
+                                <h2 id="cityName" style="margin-top: 0px;"></h2>
                             </div>
-                            <div data-v-3e6e9f12 class="current-temp">
+                            <div class="current-temp">
                                  <img id="currentWeatherImage" src="" alt="">
-                              <span data-v-3e6e9f12 id="currentTemp" class="heading"></span>
+                              <span id="currentTemp" class="heading"></span>
                            </div>
-                           <div data-v-3e6e9f12 id ="typeOfClimate" class="bold"></div>
-                           <ul data-v-3208ab85 data-v-3e6e9f12="" class="weather-items text-container orange-side standard-padding">
+                           <div id ="typeOfClimate" class="bold"></div>
+                           <ul currentConditions class="weather-items">
                               <!---->
-                              <li data-v-3208ab85>
+                              <li currentConditions>
                                  <div data-v-3208ab85 id = "wind" class="wind-line">
                                  </div>
                               </li>
-                              <li data-v-3208ab85 id = "humidity">
+                              <li currentConditions id = "humidity">
                                  <span data-v-3208ab85  class="symbol"></span>
                               </li>
                               <!---->
-                              <li data-v-3208ab85 id ="precip">
+                              <li currentConditions id ="precip">
                                  <span data-v-3208ab85 class="symbol"></span>
                               </li>
                            </ul>
                         </div>
                     </div>
                     <div class="grid-container grid-5-4" style="margin-top: 16pt;">
-                        <div data-v-5ed3171e class="daily-container block mobile-padding">
-                            <h3 data-v-5ed3171e id="8DayForecast"></h3>
-                            <ul data-v-5ed3171e class="day-list">
-                               <li data-v-5ed3171e class= "forecast">
-                                  <span data-v-5ed3171e id="weekday"></span>
-                                  <div data-v-5ed3171e class="day-list-values">
-                                     <div data-v-5ed3171e style="display: flex; justify-content: flex-start; align-items: center;">
+                        <div  class="daily-container block mobile-padding">
+                            <h3  id="8DayForecast"></h3>
+                            <ul  class="day-list">
+                               <li  class= "forecast">
+                                  <span  id="weekday"></span>
+                                  <div  class="day-list-values">
+                                     <div  style="display: flex; justify-content: flex-start; align-items: center;">
                                           <img id="weatherImage" src="" alt="">
-                                        <span data-v-5ed3171e id="temp"></span>
+                                        <span  id="temp"></span>
                                      </div>
-                                     <span data-v-5ed3171e class="sub" id = "climateType" style="text-align: right;"></span>
+                                     <span  class="sub" id = "climateType" style="text-align: right;"></span>
                                   </div>
                                </li>
-                               <li data-v-5ed3171e class= "forecast">
-                                  <span data-v-5ed3171e id="weekday"></span>
-                                  <div data-v-5ed3171e="" class="day-list-values">
-                                     <div data-v-5ed3171e="" style="display: flex; justify-content: flex-start; align-items: center;">
+                               <li  class= "forecast">
+                                  <span  id="weekday"></span>
+                                  <div class="day-list-values">
+                                     <div style="display: flex; justify-content: flex-start; align-items: center;">
                                           <img id="weatherImage" src="" alt="">
-                                        <span data-v-5ed3171e id="temp"></span>
+                                        <span  id="temp"></span>
                                      </div>
-                                     <span data-v-5ed3171e="" class="sub" id = "climateType" style="text-align: right;"></span>
+                                     <span class="sub" id = "climateType" style="text-align: right;"></span>
                                   </div>
                                </li>
-                               <li data-v-5ed3171e class= "forecast">
-                                  <span data-v-5ed3171e id="weekday"></span>
-                                  <div data-v-5ed3171e="" class="day-list-values">
-                                     <div data-v-5ed3171e="" style="display: flex; justify-content: flex-start; align-items: center;">
+                               <li  class= "forecast">
+                                  <span  id="weekday"></span>
+                                  <div class="day-list-values">
+                                     <div style="display: flex; justify-content: flex-start; align-items: center;">
                                           <img id="weatherImage" src="" alt="">
-                                        <span data-v-5ed3171e id="temp"></span>
+                                        <span  id="temp"></span>
                                      </div>
-                                     <span data-v-5ed3171e="" class="sub" id = "climateType"  style="text-align: right;"></span>
+                                     <span class="sub" id = "climateType"  style="text-align: right;"></span>
                                   </div>
                                </li>
-                               <li data-v-5ed3171e class= "forecast">
-                                  <span data-v-5ed3171e id="weekday"></span>
-                                  <div data-v-5ed3171e="" class="day-list-values">
-                                     <div data-v-5ed3171e="" style="display: flex; justify-content: flex-start; align-items: center;">
+                               <li  class= "forecast">
+                                  <span  id="weekday"></span>
+                                  <div class="day-list-values">
+                                     <div style="display: flex; justify-content: flex-start; align-items: center;">
                                           <img id="weatherImage" src="" alt="">
-                                        <span data-v-5ed3171e id="temp"></span>
+                                        <span  id="temp"></span>
                                      </div>
-                                     <span data-v-5ed3171e="" class="sub" id = "climateType" style="text-align: right;"></span>
+                                     <span class="sub" id = "climateType" style="text-align: right;"></span>
                                   </div>
                                </li>
-                               <li data-v-5ed3171e class= "forecast">
-                                  <span data-v-5ed3171e id="weekday"></span>
-                                  <div data-v-5ed3171e="" class="day-list-values">
-                                     <div data-v-5ed3171e="" style="display: flex; justify-content: flex-start; align-items: center;">
+                               <li  class= "forecast">
+                                  <span  id="weekday"></span>
+                                  <div class="day-list-values">
+                                     <div style="display: flex; justify-content: flex-start; align-items: center;">
                                           <img id="weatherImage" src="" alt="">
-                                        <span data-v-5ed3171e id="temp"></span>
+                                        <span  id="temp"></span>
                                      </div>
-                                     <span data-v-5ed3171e="" class="sub" id = "climateType" style="text-align: right;"></span>   
+                                     <span class="sub" id = "climateType" style="text-align: right;"></span>   
                                   </div>
                                </li>
-                               <li data-v-5ed3171e class= "forecast">
-                                  <span data-v-5ed3171e id="weekday"></span>
-                                  <div data-v-5ed3171e="" class="day-list-values">
-                                     <div data-v-5ed3171e="" style="display: flex; justify-content: flex-start; align-items: center;">
+                               <li  class= "forecast">
+                                  <span id="weekday"></span>
+                                  <div class="day-list-values">
+                                     <div style="display: flex; justify-content: flex-start; align-items: center;">
                                           <img id="weatherImage" src="" alt="">
-                                        <span data-v-5ed3171e id="temp"></span>
+                                        <span  id="temp"></span>
                                      </div>
-                                     <span data-v-5ed3171e="" class="sub" id = "climateType" style="text-align: right;"></span>
+                                     <span class="sub" id = "climateType" style="text-align: right;"></span>
                                   </div>
                                </li>
-                               <li data-v-5ed3171e class= "forecast">
-                                  <span data-v-5ed3171e id="weekday"></span>
-                                  <div data-v-5ed3171e="" class="day-list-values">
-                                     <div data-v-5ed3171e="" style="display: flex; justify-content: flex-start; align-items: center;">
+                               <li  class= "forecast">
+                                  <span id="weekday"></span>
+                                  <div class="day-list-values">
+                                     <div style="display: flex; justify-content: flex-start; align-items: center;">
                                           <img id="weatherImage" src="" alt="">
-                                        <span data-v-5ed3171e id="temp"></span>
+                                        <span  id="temp"></span>
                                      </div>
-                                     <span data-v-5ed3171e="" class="sub" id = "climateType" style="text-align: right;"></span>
+                                     <span class="sub" id = "climateType" style="text-align: right;"></span>
                                   </div>
                                </li>
-                               <li data-v-5ed3171e class= "forecast">
-                                  <span data-v-5ed3171e id="weekday"></span>
-                                  <div data-v-5ed3171e="" class="day-list-values">
-                                     <div data-v-5ed3171e="" style="display: flex; justify-content: flex-start; align-items: center;">
+                               <li  class= "forecast">
+                                  <span  id="weekday"></span>
+                                  <div class="day-list-values">
+                                     <div  style="display: flex; justify-content: flex-start; align-items: center;">
                                           <img id="weatherImage" src="" alt="">
-                                        <span data-v-5ed3171e id="temp"></span>
+                                        <span  id="temp"></span>
                                      </div>
-                                     <span data-v-5ed3171e="" class="sub" id = "climateType" style="text-align: right;"></span>
+                                     <span class="sub" id = "climateType" style="text-align: right;"></span>
                                   </div>
                                </li>
                             </ul>

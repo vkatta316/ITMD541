@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', function(){
     
     const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    const regex = /^[`!@#$%^&*()_+\-=\[\][/]{};':"\\|,.<>\/?~\d]*$/g;
+    const regex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~\d]/;
     
     let cityName = document.getElementById('searchCity');
     const locationSearch = document.getElementById('locationSearch');
@@ -128,6 +128,9 @@ window.addEventListener('DOMContentLoaded', function(){
     
     function renderWeatherReport(response){
         let cityName = response.region;
+
+        let currentdate = new Date(); 
+
         let epochDate = response.currentConditions.dayhour;
     
         let currentTemperature = response.currentConditions.temp.c;
@@ -139,7 +142,7 @@ window.addEventListener('DOMContentLoaded', function(){
         let precipitation = response.currentConditions.precip;
     
         console.log(response);
-        document.getElementById("orange-text").textContent=epochDate;
+        document.getElementById("dateStamp").textContent=  epochDate;
         document.getElementById("cityName").innerHTML = cityName;
         document.getElementById("currentTemp").textContent = currentTemperature+' °C'+'';
         document.getElementById("typeOfClimate").innerHTML = typeOfClimate;
