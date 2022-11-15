@@ -32,6 +32,7 @@ window.addEventListener('DOMContentLoaded', function(){
         let apiId = 'aadf2d7aebc25288bf65c6a1edf67b13';
         
         let apiURL= 'https://weatherdbi.herokuapp.com/data/weather/'+ latitude +','+ longitude +'';
+        console.log(apiURL);
         weatherAPI(apiURL); 
     }
     
@@ -42,12 +43,21 @@ window.addEventListener('DOMContentLoaded', function(){
             return res.json();
         })
         .then(function(response){
-            hideLoading();
-            renderWeatherReport(response);
+            if(response.status === 'fail' && response.message == 'invalid query'){ 
+                hideLoading();       
+                document.getElementById('cityNotFound').classList.add('notFoundOpen');
+               // let err = document.getElementById('cityNotFound');
+                //err.innerText = response.message + '. API is down';
+            }
+            else{
+                hideLoading();
+                renderWeatherReport(response);
+            }
         })
         .catch(error => console.log(error))
     }
     
+
     
     function error(err) {
         console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -108,6 +118,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
     function weatherAPIAction(location){
         displayLoading();
+        
         fetch(`https://weatherdbi.herokuapp.com/data/weather/${location}`)
         .then(function(res){
             return res.json();
@@ -131,7 +142,9 @@ window.addEventListener('DOMContentLoaded', function(){
 
         let currentdate = new Date(); 
 
-        let epochDate = response.currentConditions.dayhour;
+        console.log(monthNames[currentdate.getMonth()]);
+
+        let currentDay = response.currentConditions.dayhour;
     
         let currentTemperature = response.currentConditions.temp.c;
         let typeOfClimate = response.currentConditions.comment;
@@ -142,7 +155,7 @@ window.addEventListener('DOMContentLoaded', function(){
         let precipitation = response.currentConditions.precip;
     
         console.log(response);
-        document.getElementById("dateStamp").textContent=  epochDate;
+        document.getElementById("dateStamp").textContent=  monthNames[currentdate.getMonth()] +' '+ currentdate.getDate() +', '+ currentDay;
         document.getElementById("cityName").innerHTML = cityName;
         document.getElementById("currentTemp").textContent = currentTemperature+' °C'+'';
         document.getElementById("typeOfClimate").innerHTML = typeOfClimate;
