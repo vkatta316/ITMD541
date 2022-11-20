@@ -354,7 +354,7 @@ weather-items[currentConditions] {
     .not-found {
         justify-content: flex-end;
         padding: 5px;
-        padding-right: 22pt;
+        padding-right: 28pt;
         align-items: flex-end;     
     }
 }

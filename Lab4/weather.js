@@ -37,17 +37,18 @@ window.addEventListener('DOMContentLoaded', function(){
     }
     
     function weatherAPI(apiURL){
+       // document.getElementById('cityNotFound').classList.remove('notFoundOpen');
         fetch(apiURL)
         .then(function(res){
             console.log(res.json)
             return res.json();
         })
         .then(function(response){
-            if(response.status === 'fail' && response.message == 'invalid query'){ 
+            if(response.status === 'fail'){ 
                 hideLoading();       
                 document.getElementById('cityNotFound').classList.add('notFoundOpen');
-               // let err = document.getElementById('cityNotFound');
-                //err.innerText = response.message + '. API is down';
+                let err = document.getElementById('cityNotFound');
+                err.innerText = 'Please refresh the window. API is down';
             }
             else{
                 hideLoading();
@@ -62,9 +63,11 @@ window.addEventListener('DOMContentLoaded', function(){
     function error(err) {
         console.warn(`ERROR(${err.code}): ${err.message}`);
     
-        let wrapper = document.createElement('div');
+        document.getElementById('cityNotFound').classList.add('notFoundOpen');
+        let wrapper =  document.getElementById('cityNotFound');
         let text = `Error(${err.code}): ${err.message}`;
-        wrapper.innerHTML = text;
+        wrapper.textContent = text;
+
         //document.getElementsByTagName('body')[0].appendChild(wrapper);
     }
     
@@ -91,11 +94,14 @@ window.addEventListener('DOMContentLoaded', function(){
             }
             else{
                 document.getElementById('cityNotFound').classList.add('notFoundOpen');
+                let err = document.getElementById('cityNotFound');
+                err.textContent= "Not found. Put the correct city's name.";
             }
         }
     });
 
     locationSearch.addEventListener("click", function() {
+        document.getElementById('cityNotFound').classList.remove('notFoundOpen');
         navigator.geolocation.getCurrentPosition(success, error, options);
     
     });
@@ -112,6 +118,8 @@ window.addEventListener('DOMContentLoaded', function(){
         }
         else{
             document.getElementById('cityNotFound').classList.add('notFoundOpen');
+            let err = document.getElementById('cityNotFound');
+            err.textContent= "Not found. Put the correct city's name.";
         }
     
     });
@@ -128,6 +136,8 @@ window.addEventListener('DOMContentLoaded', function(){
         if(jsonData.status === 'fail'){ 
             hideLoading();       
             document.getElementById('cityNotFound').classList.add('notFoundOpen');
+            let err = document.getElementById('cityNotFound');
+            err.textContent= "Not found. Put the correct city's name.";
         }
         else{
             hideLoading();
@@ -146,7 +156,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
         let currentDay = response.currentConditions.dayhour;
     
-        let currentTemperature = response.currentConditions.temp.c;
+        let currentTemperature = response.currentConditions.temp.f;
         let typeOfClimate = response.currentConditions.comment;
         let currentWeatherIcon = response.currentConditions.iconURL;
     
@@ -157,7 +167,7 @@ window.addEventListener('DOMContentLoaded', function(){
         console.log(response);
         document.getElementById("dateStamp").textContent=  monthNames[currentdate.getMonth()] +' '+ currentdate.getDate() +', '+ currentDay;
         document.getElementById("cityName").innerHTML = cityName;
-        document.getElementById("currentTemp").textContent = currentTemperature+' °C'+'';
+        document.getElementById("currentTemp").textContent = currentTemperature+' °F'+'';
         document.getElementById("typeOfClimate").innerHTML = typeOfClimate;
     
         document.getElementById("wind").innerHTML = ' Wind: '+  wind+' km'+'';
@@ -191,9 +201,9 @@ window.addEventListener('DOMContentLoaded', function(){
             while(count<8){
                 for (var i = 0; i < climate.length; i++) {
                     climate[i].innerHTML = eightDayForeCast[count].comment;
-                    let maxTemp = eightDayForeCast[count].max_temp.c;
-                    let minTemp = eightDayForeCast[count].min_temp.c;      
-                    temperatureInCelcius[i].innerHTML = maxTemp +' / '+ minTemp +' °C'+'';
+                    let maxTemp = eightDayForeCast[count].max_temp.f;
+                    let minTemp = eightDayForeCast[count].min_temp.f;      
+                    temperatureInCelcius[i].innerHTML = maxTemp +' / '+ minTemp +' °F'+'';
                     count++;
                 }
             }
