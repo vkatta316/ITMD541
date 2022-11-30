@@ -23,15 +23,24 @@ window.addEventListener('DOMContentLoaded', function(){
         
         let latitude = `${crd.latitude}`;
         let longitude= `${crd.longitude}`;
+    
+        console.log('Your current position is:');
+        console.log(`Latitude : ${crd.latitude}`);
+        console.log(`Longitude: ${crd.longitude}`);
+        console.log(`More or less ${crd.accuracy} meters.`);
+    
         let apiId = 'aadf2d7aebc25288bf65c6a1edf67b13';
         
         let apiURL= 'https://weatherdbi.herokuapp.com/data/weather/'+ latitude +','+ longitude +'';
+        console.log(apiURL);
         weatherAPI(apiURL); 
     }
     
     function weatherAPI(apiURL){
+       // document.getElementById('cityNotFound').classList.remove('notFoundOpen');
         fetch(apiURL)
         .then(function(res){
+            console.log(res.json)
             return res.json();
         })
         .then(function(response){
@@ -46,7 +55,9 @@ window.addEventListener('DOMContentLoaded', function(){
                 renderWeatherReport(response);
             }
         })
-        .catch(error => console.log(error))
+        .catch(function(error) {
+            catchErrMessage();  
+        })
     }
     
 
@@ -58,6 +69,8 @@ window.addEventListener('DOMContentLoaded', function(){
         let wrapper =  document.getElementById('cityNotFound');
         let text = `Error(${err.code}): ${err.message}`;
         wrapper.textContent = text;
+
+        //document.getElementsByTagName('body')[0].appendChild(wrapper);
     }
     
     function getWeekDays() {
@@ -66,6 +79,7 @@ window.addEventListener('DOMContentLoaded', function(){
             
         weekDays.forEach((item, index) => {
         let currentDate = (weekDays[myDate.getDay()+ index])+" , "+(monthNames[myDate.getMonth()]) + " " + myDate.getDate()+index;
+        //console.log(currentDate);
         })
     }
     
@@ -74,6 +88,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
         if(event.key === 'Enter'){
             let location = cityName.value;
+            console.log(location);
             let errorMsg =  validateInputs(location);
     
             if(errorMsg.length == 0){
@@ -97,6 +112,7 @@ window.addEventListener('DOMContentLoaded', function(){
         document.getElementById('cityNotFound').classList.remove('notFoundOpen');
 
         let location = cityName.value;
+        console.log(location);
         let errorMsg =  validateInputs(location);
     
         if(errorMsg.length == 0){
@@ -118,6 +134,7 @@ window.addEventListener('DOMContentLoaded', function(){
             return res.json();
         })
         .then(function(jsonData){
+        console.log(jsonData);
         if(jsonData.status === 'fail'){ 
             hideLoading();       
             document.getElementById('cityNotFound').classList.add('notFoundOpen');
@@ -136,6 +153,9 @@ window.addEventListener('DOMContentLoaded', function(){
         let cityName = response.region;
 
         let currentdate = new Date(); 
+
+        console.log(monthNames[currentdate.getMonth()]);
+
         let currentDay = response.currentConditions.dayhour;
     
         let currentTemperature = response.currentConditions.temp.f;
@@ -146,6 +166,7 @@ window.addEventListener('DOMContentLoaded', function(){
         let wind = response.currentConditions.wind.km;
         let precipitation = response.currentConditions.precip;
     
+        console.log(response);
         document.getElementById("dateStamp").textContent=  monthNames[currentdate.getMonth()] +' '+ currentdate.getDate() +', '+ currentDay;
         document.getElementById("cityName").innerHTML = cityName;
         document.getElementById("currentTemp").textContent = currentTemperature+' °F'+'';
@@ -192,6 +213,7 @@ window.addEventListener('DOMContentLoaded', function(){
        getWeekDays();
     }
     
+    
     function validateInputs(location){
         let msg = '';
         if(location.length == 0){
@@ -214,6 +236,15 @@ window.addEventListener('DOMContentLoaded', function(){
 
     function hideLoading(){
         document.getElementById("loading").style.display = "none";
+
+    }
+    
+    function catchErrMessage(){
+        hideLoading();  
+        document.getElementById('cityNotFound').classList.add('notFoundOpen');
+        let err2 = document.getElementById('cityNotFound');
+        err2.innerText = 'Please refresh the window. API is down';
+
     }
 
     navigator.geolocation.getCurrentPosition(success, error, options);
